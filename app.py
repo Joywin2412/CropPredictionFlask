@@ -2,6 +2,7 @@ from flask import Flask , request,jsonify
 import numpy as np
 import pandas as pd
 import pickle
+from joblib import load
 
 app = Flask(__name__)
 model = pd.read_pickle('model2.sav')
