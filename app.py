@@ -6,7 +6,7 @@ from joblib import load
 
 app = Flask(__name__)
 model = load('xgboostmodel.joblib')
-df = load('columns.joblib')
+df = pd.read_csv("crop_production.csv")
 
 @app.route("/",methods = ['POST'])
 def prediction():
