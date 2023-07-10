@@ -4,7 +4,7 @@ import pandas as pd
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open("xgboostmodel2.sav",'rb'))
+model = pickle.load(open('xgboostmodel2.sav','rb'))
 df = pickle.load(open('columns.csv', 'rb'))
 
 @app.route("/",methods = ['POST'])
