@@ -4,7 +4,7 @@ import pandas as pd
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open('xgboostmodel2.sav','rb'))
+model = pickle.load(open('model2.sav','rb'))
 df = pickle.load(open('columns.csv', 'rb'))
 
 @app.route("/",methods = ['POST'])
@@ -23,5 +23,5 @@ def prediction():
     Production = model.predict(df2)
     return (str(Production*area))
 
-# if __name__ == '__main__':
-#     app.run(port=5000, debug=True)
+if __name__ == '__main__':
+    app.run(port=5000, debug=True)
