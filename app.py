@@ -4,8 +4,8 @@ import pandas as pd
 import pickle
 
 app = Flask(__name__)
-model = pd.read_pickle('model2.sav','rb')
-df = pd.read_pickle('columns.csv', 'rb')
+model = pd.read_pickle('model2.sav')
+df = pd.read_pickle('columns.csv')
 
 @app.route("/",methods = ['POST'])
 def prediction():
