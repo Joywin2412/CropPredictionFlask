@@ -5,8 +5,8 @@ import pickle
 from joblib import load
 
 app = Flask(__name__)
-model = load('xgboostmodel.sav')
-df = load('columns.csv')
+model = load('xgboostmodel.joblib')
+df = load('columns.joblib')
 
 @app.route("/",methods = ['POST'])
 def prediction():
