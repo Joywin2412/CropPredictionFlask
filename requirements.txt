@@ -11,3 +11,4 @@ textblob
 streamlit
 pillow
 keras
+protobuf==3.20.*
