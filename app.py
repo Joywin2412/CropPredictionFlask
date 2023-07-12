@@ -12,7 +12,7 @@ from nltk.stem.porter import PorterStemmer
 from keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-nltk.download('punkt')
+# nltk.download('punkt')
 app = Flask(__name__)
 model = load('xgboostmodel.joblib')
 chatmodel = load_model('chatbotmodel.h5',compile = False)
@@ -270,9 +270,11 @@ def chat():
  'notfound': ['Farm Sensei encourage to fill the form in the profile page. Profile is accessed by clicking on the top of the page. Then you must be able to see the farmers near you!!'],
  'communication': ['Farm Sensei encourage to go to profile page. Then you must be able to see the farmers near your area. Send them a friend request. And after accepting you will be able to see their phone number']}
     
-    text = str(TextBlob(text).correct())
     test_lines = clean_text([text])
-    test_sequences = tokenizer_obj.texts_to_sequences(test_lines)
+    print(test_lines)
+    text = []
+    text.append(str(TextBlob(test_lines[0]).correct()))
+    test_sequences = tokenizer_obj.texts_to_sequences(text)
     print(test_sequences)
     # consider = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     test_review_pad = pad_sequences(test_sequences, maxlen=15, padding='post')
