@@ -6,10 +6,10 @@ xgboost
 joblib
 scikit-learn
 nltk
-tensorflow==2.5.0
+tensorflow==2.8
 textblob
 streamlit
 pillow
-keras
+keras==2.6
 protobuf==3.20.*
 tensorflow-estimator==2.1.
