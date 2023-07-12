@@ -241,34 +241,34 @@ def chat():
     data = request.get_json(force=True)
     text = data['text']
     print(text)
-    dict = {'predict': 0,
- 'recommend': 1,
- 'goodbye': 2,
- 'name': 3,
- 'greeting': 4,
- 'weather': 5,
- 'stores': 6,
- 'crops': 7,
- 'friends': 8,
- 'delete': 9,
- 'notfound': 10,
- 'communication': 11}
-    dictionary2 = {'predict': ['You can go to our homepage and click on get started 🤝'],
- 'recommend': ['Congrats! You accessed one of to-be-developed features. I am sincerely sorry to tell that the feature is not yet available',
-  'Features is in development stage. Inconvience regretted'],
- 'goodbye': ['Bye', 'take care'],
- 'name': ['My name is farm sensei. Developers named me that',
-  'I am farm sensei. Ready to be at your service'],
- 'greeting': ['Hi there. I am Farm Sensei!. Ready to help', 'Hello', 'Hi :)'],
- 'weather': ['Go to homepage and access weather forecast for our amazing features.'],
- 'stores': ['Farm sensei to the rescue! You can access stores from the homepage!',
-  'To know the stores near you can use our stores feature in the homepage'],
- 'crops': ['Farm sensei to the rescue! You can access crops from the major crops in the homepage!',
-  'To know the crops grown near you can use our major crops feature in the homepage 🚀'],
- 'friends': ['Farm sensei to the rescue! Click on your profile on the toppage! There you go you should see a friends bar on the right!!'],
- 'delete': ['Extremely sorry to hear that! We will improve in the future. If you are unhappy with our service delete the account is present in the profile accessed by clicking on the top of your page'],
- 'notfound': ['Farm Sensei encourage to fill the form in the profile page. Profile is accessed by clicking on the top of the page. Then you must be able to see the farmers near you!!'],
- 'communication': ['Farm Sensei encourage to go to profile page. Then you must be able to see the farmers near your area. Send them a friend request. And after accepting you will be able to see their phone number']}
+#     dict = {'predict': 0,
+#  'recommend': 1,
+#  'goodbye': 2,
+#  'name': 3,
+#  'greeting': 4,
+#  'weather': 5,
+#  'stores': 6,
+#  'crops': 7,
+#  'friends': 8,
+#  'delete': 9,
+#  'notfound': 10,
+#  'communication': 11}
+#     dictionary2 = {'predict': ['You can go to our homepage and click on get started 🤝'],
+#  'recommend': ['Congrats! You accessed one of to-be-developed features. I am sincerely sorry to tell that the feature is not yet available',
+#   'Features is in development stage. Inconvience regretted'],
+#  'goodbye': ['Bye', 'take care'],
+#  'name': ['My name is farm sensei. Developers named me that',
+#   'I am farm sensei. Ready to be at your service'],
+#  'greeting': ['Hi there. I am Farm Sensei!. Ready to help', 'Hello', 'Hi :)'],
+#  'weather': ['Go to homepage and access weather forecast for our amazing features.'],
+#  'stores': ['Farm sensei to the rescue! You can access stores from the homepage!',
+#   'To know the stores near you can use our stores feature in the homepage'],
+#  'crops': ['Farm sensei to the rescue! You can access crops from the major crops in the homepage!',
+#   'To know the crops grown near you can use our major crops feature in the homepage 🚀'],
+#  'friends': ['Farm sensei to the rescue! Click on your profile on the toppage! There you go you should see a friends bar on the right!!'],
+#  'delete': ['Extremely sorry to hear that! We will improve in the future. If you are unhappy with our service delete the account is present in the profile accessed by clicking on the top of your page'],
+#  'notfound': ['Farm Sensei encourage to fill the form in the profile page. Profile is accessed by clicking on the top of the page. Then you must be able to see the farmers near you!!'],
+#  'communication': ['Farm Sensei encourage to go to profile page. Then you must be able to see the farmers near your area. Send them a friend request. And after accepting you will be able to see their phone number']}
     
     text = str(TextBlob(text).correct())
     test_lines = clean_text([text])
@@ -283,10 +283,10 @@ def chat():
     pred[0] = np.array(pred[0])
     print(pred)
     i = np.argmax(pred[0])
-    inverse_dict = {value: key for key, value in dict.items()}
-    print(inverse_dict[i])
-    ourResult = random.choice(dictionary2[inverse_dict[i]])
-    return (ourResult)
+    # inverse_dict = {value: key for key, value in dict.items()}
+    # print(inverse_dict[i])
+    # ourResult = random.choice(dictionary2[inverse_dict[i]])
+    return (str(i))
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
