@@ -4,14 +4,12 @@ import pandas as pd
 import random
 from textblob import TextBlob
 from joblib import load
-from keras.preprocessing.text import Tokenizer
 import re
 import nltk
 import string
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
-from keras.utils.data_utils import pad_sequences
 
 
 app = Flask(__name__)
@@ -273,10 +271,14 @@ def chat():
     print(text)
     test_lines = clean_text([text])
     test_sequences = tokenizer_obj.texts_to_sequences(test_lines)
-    test_review_pad = pad_sequences(test_sequences, maxlen=15, padding='post')
-    print(test_review_pad)
-    
-    pred = chatmodel.predict([test_review_pad])
+    print(test_sequences)
+    consider = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    for i in range(0,len(test_sequences[0])):
+        consider[i] = test_sequences[0][i]
+    # test_review_pad = pad_sequences(test_sequences, maxlen=15, padding='post')
+    # print(test_review_pad)
+    test_sequences[0] = consider
+    pred = chatmodel.predict(test_sequences)
     pred*=100
     pred[0] = np.array(pred[0])
     print(pred)
