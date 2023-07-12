@@ -10,12 +10,13 @@ import string
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
+from keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 
 app = Flask(__name__)
 model = load('xgboostmodel.joblib')
-chatmodel = load('chatbotmodel.joblib')
+chatmodel = load_model('chatbotmodel.h5')
 tokenizer_obj = load('tokenizer.joblib')
 
 def clean_text(text):
