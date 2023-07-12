@@ -240,6 +240,7 @@ def prediction():
 def chat():
     data = request.get_json(force=True)
     text = data['text']
+    print(text)
     dict = {'predict': 0,
  'recommend': 1,
  'goodbye': 2,
@@ -268,8 +269,8 @@ def chat():
  'delete': ['Extremely sorry to hear that! We will improve in the future. If you are unhappy with our service delete the account is present in the profile accessed by clicking on the top of your page'],
  'notfound': ['Farm Sensei encourage to fill the form in the profile page. Profile is accessed by clicking on the top of the page. Then you must be able to see the farmers near you!!'],
  'communication': ['Farm Sensei encourage to go to profile page. Then you must be able to see the farmers near your area. Send them a friend request. And after accepting you will be able to see their phone number']}
+    
     text = str(TextBlob(text).correct())
-    print(text)
     test_lines = clean_text([text])
     test_sequences = tokenizer_obj.texts_to_sequences(test_lines)
     print(test_sequences)
