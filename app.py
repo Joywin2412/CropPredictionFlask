@@ -1,7 +1,6 @@
 from flask import Flask , request,jsonify
 import numpy as np
 import pandas as pd
-import pickle
 import random
 from textblob import TextBlob
 from joblib import load
