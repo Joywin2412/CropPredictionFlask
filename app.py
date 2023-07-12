@@ -16,7 +16,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 app = Flask(__name__)
 model = load('xgboostmodel.joblib')
-chatmodel = load_model('chatbotmodel.h5')
+chatmodel = load_model('chatbotmodel.h5',compile = False)
 tokenizer_obj = load('tokenizer.joblib')
 
 def clean_text(text):
