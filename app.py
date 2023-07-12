@@ -12,7 +12,7 @@ from nltk.stem.porter import PorterStemmer
 from keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-# nltk.download('punkt')
+nltk.download('punkt')
 app = Flask(__name__)
 model = load('xgboostmodel.joblib')
 chatmodel = load_model('chatbotmodel.h5',compile = False)
