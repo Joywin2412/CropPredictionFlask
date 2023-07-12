@@ -10,7 +10,7 @@ import string
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
-from keras.utils.data_utils import pad_sequences
+from keras.io.preprocessing.sequence import pad_sequences
 
 
 app = Flask(__name__)
