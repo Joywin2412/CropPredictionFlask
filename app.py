@@ -11,9 +11,12 @@ from nltk.tokenize import word_tokenize
 from nltk.stem.porter import PorterStemmer
 from keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+from flask_cors import CORS
+
 
 nltk.download('punkt')
 app = Flask(__name__)
+CORS(app)
 model = load('xgboostmodel.joblib')
 chatmodel = load_model('chatbotmodel.h5',compile = False)
 tokenizer_obj = load('tokenizer.joblib')
